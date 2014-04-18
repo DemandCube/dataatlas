@@ -1,11 +1,17 @@
 apply plugin: 'java'
+apply plugin: 'maven'
+
+group='kafkasphere-core'
+version='1.0-SNAPSHOT'
 
 repositories {
+  mavenLocal()
   mavenCentral()
 }
 
 dependencies {
-  compile group: 'com.sparkjava', name: 'spark-core', version: '1.1.1'
-  compile group: 'com.sparkjava', name: 'spark-template-freemarker', version: '1.0'
-  compile group: 'org.apache.kafka', name: 'kafka_2.9.2', version: '0.8.1'
+  compile([group: 'com.sparkjava', name: 'spark-core', version: '1.1.1'],
+          [group: 'com.sparkjava', name: 'spark-template-freemarker', version: '1.0'],
+          [group: 'org.apache.kafka', name: 'kafka_2.9.2', version: '0.8.1']
+  )
 }
