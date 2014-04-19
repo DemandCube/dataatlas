@@ -9,9 +9,31 @@ repositories {
   mavenCentral()
 }
 
+configurations {
+//    compile.exclude module: 'javax.jms:jms:1.1:jms.jar'
+    all*.exclude group: 'javax.jms'
+    all*.exclude group: 'com.sun.jdmk'
+    all*.exclude group: 'com.sun.jmx'
+}
+
 dependencies {
-  compile([group: 'com.sparkjava', name: 'spark-core', version: '1.1.1'],
-          [group: 'com.sparkjava', name: 'spark-template-freemarker', version: '1.0'],
-          [group: 'org.apache.kafka', name: 'kafka_2.9.2', version: '0.8.1']
-  )
+  compile('com.sparkjava:spark-core:1.1.1')
+  compile('com.sparkjava:spark-template-freemarker:1.0')
+  compile('org.apache.kafka:kafka_2.9.2:0.8.1')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+        }
+//        resources {
+//            srcDir 'src/main/resources'
+//        }
+    }
+}
+
+task execute(type: JavaExec) {
+    main = "kafkasphere.NachtsServer"
+    classpath = sourceSets.main.runtimeClasspath
 }
