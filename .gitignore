@@ -1,0 +1,43 @@
+## Generic files
+# backup (*~)
+# vim swap (.swp)
+# Mac (.DS_Store)
+# any file with .out extension (a.out ..etc)
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+# Java
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Virtual machine crash logs
+# see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Netbeans
+nbproject/private/
+
+# Gradle
+.gradle
+build
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Maven
+log/
+target/
