@@ -6,7 +6,7 @@ import spark.*;
 /**
  * A RESTful server built on the Spark Framework (sparkjava.com).
  **/
-public class NachtsServer {
+public class GregorServer {
     public static void main(String[] args) {
         get(new Route("/") {
             @Override

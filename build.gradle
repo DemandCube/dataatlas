@@ -34,6 +34,6 @@ sourceSets {
 }
 
 task execute(type: JavaExec) {
-    main = "kafkasphere.NachtsServer"
+    main = "kafkasphere.GregorServer"
     classpath = sourceSets.main.runtimeClasspath
 }
