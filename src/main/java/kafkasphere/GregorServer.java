@@ -11,7 +11,7 @@ public class GregorServer {
         get(new Route("/") {
             @Override
             public Object handle(Request request, Response response) {
-                return "Hello World!";
+                return "As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into a monstrous vermin...";
             }
         });
     }
