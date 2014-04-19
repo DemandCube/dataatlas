@@ -8,10 +8,10 @@ import spark.*;
  **/
 public class NachtsServer {
     public static void main(String[] args) {
-        get(new Route("/hello") {
+        get(new Route("/") {
             @Override
             public Object handle(Request request, Response response) {
-                return "Hello Spark MVC Framework!";
+                return "Hello World!";
             }
         });
     }
