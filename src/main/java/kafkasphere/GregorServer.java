@@ -38,7 +38,7 @@ public class GregorServer {
 
                 // config the broker to send messages to
                 Properties props = new Properties();
-                props.put("metadata.broker.list", "broker1:9092");
+                props.put("metadata.broker.list", "localhost:9092");
                 props.put("serializer.class", "kafka.serializer.StringEncoder");
                 props.put("request.required.acks", "1");
                 ProducerConfig config = new ProducerConfig(props);
