@@ -37,6 +37,6 @@ sourceSets {
 }
 
 task execute(type: JavaExec) {
-  main = "com.DemandCube.KafkaSphere.GregorServer"
+  main = "com.DemandCube.KafkaSphere.NachtsServer"
   classpath = sourceSets.main.runtimeClasspath
 }
