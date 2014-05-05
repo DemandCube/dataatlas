@@ -1,4 +1,4 @@
-package kafkasphere;
+package com.DemandCube.KafkaSphere;
 
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
