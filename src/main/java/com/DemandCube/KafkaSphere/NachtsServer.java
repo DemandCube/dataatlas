@@ -106,6 +106,8 @@ public class NachtsServer {
       }
     });
 
+    // KAFKA ROUTES
+
     get(new Route("/api/:topic") {
       @Override
       public Object handle(Request request, Response response) {
@@ -116,6 +118,36 @@ public class NachtsServer {
         simpleConsumer.run(1);
 
         return topic;
+      }
+    });
+
+    post(new Route("/api/:topic") {
+      @Override
+      public Object handle(Request request, Response response) {
+        String topic = request.params(":topic");
+        String message = request.queryParams("message");
+
+                // config the broker to send messages to
+        Properties props = new Properties();
+        props.put("metadata.broker.list", "localhost:9092");
+        props.put("serializer.class", "kafka.serializer.StringEncoder");
+        props.put("request.required.acks", "1");
+        ProducerConfig config = new ProducerConfig(props);
+
+                // initialize the producer
+        Producer<String, String> producer = new Producer<String, String>(config);
+
+                // craft a message:
+        Random rnd = new Random();
+        long runtime = new Date().getTime();
+        String ip = "192.168.2." + rnd.nextInt(255);
+        String msg = "[" + runtime + "] www.example.com - " + ip + "\nmessage:" +message;
+
+        KeyedMessage<String, String> data = new KeyedMessage<String, String>(topic, ip, msg);
+
+        producer.send(data);
+
+        return "Success!\ntopic: "+topic+"\n" + msg+"\n";
       }
     });
 
