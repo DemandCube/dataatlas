@@ -7,7 +7,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+import java.util.Random;
+import java.util.Date;
 
+import kafka.javaapi.producer.Producer;
+import kafka.producer.KeyedMessage;
+import kafka.producer.ProducerConfig;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -99,6 +105,20 @@ public class NachtsServer {
         return null;
       }
     });
+
+    get(new Route("/api/:topic") {
+      @Override
+      public Object handle(Request request, Response response) {
+        String topic = request.params(":topic");
+
+        SparkConsumerGroup simpleConsumer = new SparkConsumerGroup("localhost:2181", "test-consumer-group", topic);
+
+        simpleConsumer.run(1);
+
+        return topic;
+      }
+    });
+
   }
 }
 
