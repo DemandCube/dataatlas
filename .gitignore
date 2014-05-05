@@ -41,3 +41,6 @@ build
 # Maven
 log/
 target/
+C:\\loging.log
+log-cleaner.log
+logger.log
