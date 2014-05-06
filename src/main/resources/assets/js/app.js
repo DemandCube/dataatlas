@@ -1,7 +1,31 @@
-/**
- * Created with IntelliJ IDEA.
- * User: stites
- * Date: 5/5/14
- * Time: 5:33 PM
- * To change this template use File | Settings | File Templates.
- */
+angular
+.module('kafkaSphere', [
+        'ui.router'
+        ])
+
+.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/groups");
+  $stateProvider
+  .state('groups', {
+    url: "/groups",
+    templateUrl: "partials/groups/groups.html"
+  })
+  .state('groups.list', {
+    url: "/list",
+    templateUrl: "partials/groups/groups.list.html",
+    controller: function($scope) {
+      $scope.groups = ["A", "List", "Of", "Groups"];
+    }
+  })
+  .state('topics', {
+    url: "/topics",
+    templateUrl: "partials/topics/topics.html",
+  })
+  .state('topics.list', {
+    url: "/list",
+    templateUrl: "partials/topics/topics.list.html",
+    controller: function($scope) {
+      $scope.topics = ["A", "Set", "Of", "Topics"];
+    }
+  })
+});
