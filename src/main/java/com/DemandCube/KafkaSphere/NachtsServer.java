@@ -20,6 +20,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import kafka.api.OffsetRequest;
+import kafka.api.PartitionOffsetRequestInfo;
+import kafka.common.BrokerNotAvailableException;
+import kafka.common.TopicAndPartition;
+import org.apache.zookeeper.data.Stat;
 
 /**
  * A RESTful server built on the Spark Framework (sparkjava.com).
@@ -108,18 +113,27 @@ public class NachtsServer {
 
     // KAFKA ROUTES
 
-    get(new Route("/api/:topic") {
-      @Override
-      public Object handle(Request request, Response response) {
-        String topic = request.params(":topic");
+     get(new Route("/api/:topic") {
+         @Override
+         public Object handle(Request request, Response response) {
+             String topic = request.params(":topic");
 
-        SparkConsumerGroup simpleConsumer = new SparkConsumerGroup("localhost:2181", "test-consumer-group", topic);
+             SparkConsumerGroup simpleConsumer = new SparkConsumerGroup("localhost:2181", "test-consumer-group", topic);
 
-        simpleConsumer.run(1);
+             simpleConsumer.run(1);
 
-        return topic;
-      }
-    });
+             return topic;
+         }
+     });
+
+     get(new Route("/sphere/api/:topic") {
+         @Override
+         public Object handle(Request request, Response response) {
+             String topic = request.params(":topic");
+             System.out.println(Stat.signature());
+             return topic;
+         }
+     });
 
     post(new Route("/api/:topic") {
       @Override
