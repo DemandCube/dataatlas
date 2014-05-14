@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="medium-3 columns"> topic </div>
+  <div class="medium-3 columns"> messageCount </div>
+  <div class="medium-3 columns"> consumers.length </div>
+  <div class="medium-3 columns"> lastActive </div>
+</div>
+<hr>
+<div class="row">
+  <div class="medium-3 columns"> {{topic}} </div>
+  <div class="medium-3 columns"> {{messageCount}} </div>
+  <div class="medium-3 columns"> {{consumers.length}} </div>
+  <div class="medium-3 columns"> {{lastActive}} </div>
+</div>
+<div ng-repeat="consumer in consumers">
+  <div class="row">
+    <a ui-shref="consumers.consumer({id:consumer})">{{consumer}}</a> </div>
+</div>

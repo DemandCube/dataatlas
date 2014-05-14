@@ -17,6 +17,11 @@ ks.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: "components/topics/topics.html",
     controller: "topicsCtrl",
   })
+  .state('topics.details', {
+    url: "/:id",
+    templateUrl: "components/topics/topics.topic.html",
+    controller: "topicCtrl",
+  })
 });
 
 angular.module('ks.consumers', []);
