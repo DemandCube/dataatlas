@@ -1,5 +1,6 @@
 var topics = angular.module('ks.topics')
 
-topics.controller('topicsCtrl', ['$scope', function($scope){
-  $scope.topics = ["A", "Set", "Of", "Topics"];
+topics.controller('topicsCtrl', ['$scope', 'TopicsService',
+  function($scope, TopicsService){
+    $scope.topics = new TopicsService();
 }])
