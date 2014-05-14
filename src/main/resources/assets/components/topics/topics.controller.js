@@ -7,7 +7,6 @@ topics.controller('topicsCtrl', ['$scope', 'TopicsService',
 
 topics.controller('topicCtrl', ['$scope', '$stateParams',
   function($scope, $stateParams){
-    console.log('asdf')
     $scope.topic = $stateParams.id;
     $scope.consumers = ['consumer1', 'consumer2', 'consumer3', ];
     $scope.lastActive = new Date();
