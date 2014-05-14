@@ -1,5 +1,7 @@
 var ks = angular.module('kafkaSphere', [ 'ui.router',
                                          'mm.foundation',
+                                         'ks.consumers',
+                                         'ks.topics',
 ])
 
 ks.config(function($stateProvider, $urlRouterProvider) {
@@ -16,3 +18,6 @@ ks.config(function($stateProvider, $urlRouterProvider) {
     controller: "topicsCtrl",
   })
 });
+
+angular.module('ks.consumers', []);
+angular.module('ks.topics', []);

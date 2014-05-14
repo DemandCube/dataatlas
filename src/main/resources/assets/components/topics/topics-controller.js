@@ -1,5 +1,5 @@
-var ks = angular.module('kafkaSphere')
+var topics = angular.module('ks.topics')
 
-ks.controller('topicsCtrl', ['$scope', function($scope){
+topics.controller('topicsCtrl', ['$scope', function($scope){
   $scope.topics = ["A", "Set", "Of", "Topics"];
 }])

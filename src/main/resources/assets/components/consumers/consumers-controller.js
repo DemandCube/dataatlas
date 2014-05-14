@@ -1,5 +1,5 @@
-var ks = angular.module('kafkaSphere')
+var consumers = angular.module('ks.consumers')
 
-ks.controller('consumersCtrl', ['$scope', function($scope){
-  $scope.consumers = ["A", "List", "Of", "Consumers"];
-}])
+consumers.controller('consumersCtrl', function($scope, ConsumersService){
+  $scope.consumers = new ConsumersService();
+})
