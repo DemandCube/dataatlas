@@ -1,10 +1,8 @@
-angular
-.module('kafkaSphere', [
-        'ui.router',
-        'mm.foundation',
-        ])
+var ks = angular.module('kafkaSphere', [ 'ui.router',
+                                         'mm.foundation',
+])
 
-.config(function($stateProvider, $urlRouterProvider) {
+ks.config(function($stateProvider, $urlRouterProvider) {
   // $urlRouterProvider.otherwise("/groups");
   $stateProvider
   .state('consumers', {
