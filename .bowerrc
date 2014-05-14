@@ -1,5 +1,5 @@
 {
-  "directory" : "src/main/resources/assets/js/lib",
+  "directory" : "src/main/resources/assets/lib",
   "storage": {
     "packages": ".bower-cache",
     "registry": ".bower-registry"

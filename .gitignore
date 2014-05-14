@@ -44,4 +44,4 @@ target/
 logger.log
 .bower-cache
 .bower-registry
-src/main/resources/assets/js/lib
+src/main/resources/assets/lib
