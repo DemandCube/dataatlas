@@ -7,15 +7,15 @@ angular
 .config(function($stateProvider, $urlRouterProvider) {
   // $urlRouterProvider.otherwise("/groups");
   $stateProvider
-  .state('groups', {
-    url: "/groups",
-    templateUrl: "partials/groups/groups.html"
+  .state('consumers', {
+    url: "/consumers",
+    templateUrl: "partials/consumers/consumers.html"
   })
-  .state('groups.list', {
+  .state('consumers.list', {
     url: "/list",
-    templateUrl: "partials/groups/groups.list.html",
+    templateUrl: "partials/consumers/consumers.list.html",
     controller: function($scope) {
-      $scope.groups = ["A", "List", "Of", "Groups"];
+      $scope.consumers = ["A", "List", "Of", "Consumers"];
     }
   })
   .state('topics', {

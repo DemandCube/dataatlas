@@ -2,80 +2,63 @@
 <html ng-app="kafkaSphere">
 <head>
   <title>KafkaSphere</title>
-  <link rel="stylesheet" href="js/lib/foundation/css/foundation.css" type="text/css">
+  <link rel="stylesheet" href="js/lib/foundation/css/foundation.min.css" type="text/css">
   <link rel="stylesheet" href="js/lib/foundation/css/normalize.css" type="text/css">
 </head>
 <body>
+  <!-- We'll add some navigation: -->
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-        <h1><a href="#">My Site</a></h1>
+        <h1><a href="#">KafkaSphere</a></h1>
       </li>
        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
 
     <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="active"><a href="#">Right Button Active</a></li>
-        <li class="has-dropdown">
-          <a href="#">Right Button Dropdown</a>
-          <ul class="dropdown">
-            <li><a href="#">First link in dropdown</a></li>
-          </ul>
-        </li>
-      </ul>
-
       <!-- Left Nav Section -->
       <ul class="left">
-        <li><a href="#">Left Nav Button</a></li>
+        <li><a ui-sref="consumers">Consumers</a></li>
+        <li><a ui-sref="topics">Topics</a></li>
+      </ul>
+
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="has-dropdown"> <a href="#">Settings</a> </li>
       </ul>
     </section>
   </nav>
-  <header>
-    <div class="row">
-      <div class="small-12 medium-12 large-12 columns">
-        <div class="logo">
-          <h1>Foundation 5 Topbar / Offcanvas menu</h1>
-          <a ui-sref="groups">Groups</a>
-          <a ui-sref="topics">Topics</a>
-        </div> <!-- END DIV.LOGO -->
-      </div> <!-- END 12 COLUMNS -->
-    </div> <!-- END ROW -->
-  </header> <!-- END HEADER -->
-  <!-- We'll also add some navigation: -->
+
   <!-- MAIN SECTION -->
   <section class="main-section">
   <!-- CONTENT SECTION -->
     <!-- Here's the content! -->
-    <section class="full-width content-section" ui-view>
+    <section class="full-width content-section">
       <div class="row">
-        <div class="small-12 medium-12 large-12 columns">
-          <h2>Moving aside for the Offcanvas people!</h2>
+        <div class="small-12 medium-12 large-12 columns" ui-view>
+          <h2>Home page!</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, minus molestias dolores blanditiis esse? Quam, accusamus, quo, eum, ipsum voluptatibus aliquam perspiciatis qui porro est sit eligendi suscipit. Expedita, eligendi, laboriosam animi itaque accusantium repudiandae dicta ullam quia ipsum amet quam nesciunt non! Porro, fuga molestiae quaerat accusantium nesciunt omnis.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, minima, quidem repellendus facilis dignissimos laboriosam doloribus sequi tempora iusto facere maxime quasi est ex qui commodi nobis aliquid id eius magnam consectetur. Ut deserunt repellat asperiores dolores odio! Incidunt, esse, distinctio modi ratione facilis iusto tempora saepe nisi nostrum culpa velit eaque quos dolore repellat facere accusamus architecto iure similique numquam autem asperiores error cumque eum. Dolor, minima aspernatur autem eaque ipsa officiis rem! Suscipit, esse, quos. Quos, perferendis, iure nobis modi perspiciatis enim error nulla asperiores dignissimos harum. Dolor, non rem in nobis illum id hic laboriosam blanditiis aliquid!</p>
-        </div> <!-- END 12 COLUMNS -->
-      </div> <!-- END ROW -->
-    </section> <!-- END SECTION.CONTENT-SECTION -->
-  </section> <!-- END SECTION.MAIN-SECTION -->
+        </div>
+      </div>
+    </section>
+  </section>
 
   <!-- FOOTER SECTION -->
   <footer>
     <div class="row">
-    </div> <!-- END ROW -->
-  </footer> <!-- END FOOTER -->
+    </div>
+  </footer>
 
   <!-- COPYRIGHT SECTION -->
   <section class="full-width copyright-section">
     <div class="row">
       <div class="small-12 columns">
         <p>&copy; 2014</p>
-      </div> <!-- END 12 COLUMNS -->
-    </div> <!-- END ROW -->
-  </section> <!-- END SECTION.FULL-WIDTH COPYRIGHT-SECTION -->
+      </div>
+    </div>
+  </section>
 
-</body>
 <!-- dependencies -->
 <script src="js/lib/angular/angular.js"></script>
 <script src="js/lib/angular-foundation/mm-foundation.js"></script>
@@ -87,4 +70,6 @@
 <script src="js/features/groups/controllers.js"></script>
 <script src="js/features/topics/controllers.js"></script>
 <script src="js/app.js"></script>
+
+</body>
 </html>
