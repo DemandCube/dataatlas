@@ -43,8 +43,6 @@ dependencies {
   runtime 'org.slf4j:slf4j-simple:1.6.1'
 }
 
-
-
 task execute(type: JavaExec) {
   main = "com.DemandCube.KafkaSphere.NachtsServer"
   classpath = sourceSets.main.runtimeClasspath
