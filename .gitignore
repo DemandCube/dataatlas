@@ -41,6 +41,11 @@ build
 # Maven
 log/
 target/
+
+logger.log
+.bower-cache
+.bower-registry
+src/main/resources/assets/lib
+
 C:\\loging.log
 log-cleaner.log
-logger.log

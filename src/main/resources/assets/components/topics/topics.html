@@ -1,0 +1,12 @@
+<h1>Topics</h1>
+<hr/>
+<div class="row">
+  <section class="large-3 columns">
+    <div ng-repeat="topic in topics.active">
+      <h4 class="subheader">
+        <a ui-sref="topics.details({id:topic})">{{ topic }}</a>
+      </h4>
+    </div>
+  </section>
+  <section class="large-9 columns" ui-view> </section>
+</div>
