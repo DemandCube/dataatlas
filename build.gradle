@@ -44,7 +44,7 @@ dependencies {
 }
 
 task execute(type: JavaExec) {
-  main = "com.DemandCube.KafkaSphere.NachtsServer"
+  main = "com.DemandCube.KafkaSphere.webserver.server"
   classpath = sourceSets.main.runtimeClasspath
 }
 

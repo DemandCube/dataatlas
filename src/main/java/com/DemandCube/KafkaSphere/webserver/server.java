@@ -1,6 +1,9 @@
-package com.DemandCube.KafkaSphere;
+package com.DemandCube.KafkaSphere.webserver;
 
 import static spark.Spark.*;
+
+import com.DemandCube.KafkaSphere.ServerMessage;
+import com.DemandCube.KafkaSphere.SparkConsumerGroup;
 import spark.*;
 
 import java.io.File;
@@ -29,7 +32,7 @@ import org.apache.zookeeper.data.Stat;
 /**
  * A RESTful server built on the Spark Framework (sparkjava.com).
  **/
-public class NachtsServer {
+public class server {
 
   private static Map<String, String> toJSON(String message) {
 
