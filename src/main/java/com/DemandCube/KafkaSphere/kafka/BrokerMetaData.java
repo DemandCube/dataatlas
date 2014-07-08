@@ -6,15 +6,19 @@ import kafka.javaapi.consumer.SimpleConsumer;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.HashMap;
 
 
 public class BrokerMetaData {
+  public static HashMap<String, HashMap<String, String>> brokerDetails = new HashMap<>();
 
   public static void main(String[] args){
     List<kafka.javaapi.TopicMetadata> data = MetaDataDump();
+    HashMap<String, String> topicDetails = new HashMap<>();
+    String topic = new String();
+
     for (kafka.javaapi.TopicMetadata item : data){
-      System.out.println("topic: " + item.topic());
+      topic = item.topic();
       for (kafka.javaapi.PartitionMetadata part: item.partitionsMetadata()){
         String replicas = "";
         String isr = "";
@@ -24,11 +28,14 @@ public class BrokerMetaData {
         for (kafka.cluster.Broker replica: part.isr()){
           isr += " " + replica.host();
         }
-        System.out.println("    Partition: " + part.partitionId());
-        System.out.println("    Leader   : " + part.leader().host());
-        System.out.println("    Replicas : [" + replicas + "]");
-        System.out.println("    ISR      : [" + isr + "]");
+        topicDetails.put("partition", String.valueOf(part.partitionId()) );
+        topicDetails.put("leader", part.leader().host() );
+        topicDetails.put("replicas", "[" + replicas + "]");
+        topicDetails.put("isr", "[" + isr + "]");
       }
+
+      brokerDetails.put(topic, topicDetails);
+      System.out.println(brokerDetails);
     }
   }
 
