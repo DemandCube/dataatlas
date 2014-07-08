@@ -13,6 +13,20 @@ public class metrics {
       List<kafka.javaapi.TopicMetadata> data = MetaDataDump();
       for (kafka.javaapi.TopicMetadata item : data){
         System.out.println("topic: " + item.topic());
+        for (kafka.javaapi.PartitionMetadata part: item.partitionsMetadata()){
+          String replicas = "";
+          String isr = "";
+          for (kafka.cluster.Broker replica: part.replicas()){
+            replicas += " " + replica.host();
+          }
+          for (kafka.cluster.Broker replica: part.isr()){
+            isr += " " + replica.host();
+          }
+          System.out.println("    Partition: " + part.partitionId());
+          System.out.println("    Leader   : " + part.leader().host());
+          System.out.println("    Replicas : [" + replicas + "]");
+          System.out.println("    ISR      : [" + isr + "]");
+        }
       }
     }
 
