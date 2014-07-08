@@ -10,9 +10,9 @@ import java.util.HashMap;
 
 
 public class BrokerMetaData {
-  public static HashMap<String, HashMap<String, String>> brokerDetails = new HashMap<>();
 
-  public static void main(String[] args){
+  public static HashMap<String, HashMap<String, String>> getDetails(){
+    HashMap<String, HashMap<String, String>> brokerDetails = new HashMap<>();
     List<kafka.javaapi.TopicMetadata> data = MetaDataDump();
     HashMap<String, String> topicDetails = new HashMap<>();
     String topic;
@@ -35,8 +35,8 @@ public class BrokerMetaData {
       }
 
       brokerDetails.put(topic, topicDetails);
-      System.out.println(brokerDetails);
     }
+    return brokerDetails;
   }
 
   public static List<kafka.javaapi.TopicMetadata> MetaDataDump(){
