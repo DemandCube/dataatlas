@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class metrics {
+public class BrokerMetaData {
   public static void main(String[] args){
     List<kafka.javaapi.TopicMetadata> data = MetaDataDump();
     for (kafka.javaapi.TopicMetadata item : data){
