@@ -15,7 +15,7 @@ public class BrokerMetaData {
   public static void main(String[] args){
     List<kafka.javaapi.TopicMetadata> data = MetaDataDump();
     HashMap<String, String> topicDetails = new HashMap<>();
-    String topic = new String();
+    String topic;
 
     for (kafka.javaapi.TopicMetadata item : data){
       topic = item.topic();
