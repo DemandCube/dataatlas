@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.HashMap;
 
 
-public class BrokerMetaData {
+public class Metadata {
 
   public static HashMap<String, HashMap<String, String>> getDetails(){
     HashMap<String, HashMap<String, String>> brokerDetails = new HashMap<>();
-    List<kafka.javaapi.TopicMetadata> data = MetaDataDump();
+    List<kafka.javaapi.TopicMetadata> data = MetadataDump();
     HashMap<String, String> topicDetails = new HashMap<>();
     String topic;
 
@@ -39,7 +39,7 @@ public class BrokerMetaData {
     return brokerDetails;
   }
 
-  public static List<kafka.javaapi.TopicMetadata> MetaDataDump(){
+  public static List<kafka.javaapi.TopicMetadata> MetadataDump(){
     kafka.javaapi.consumer.SimpleConsumer consumer = new SimpleConsumer("0.0.0.0", 9092, 100000, 64 * 1024, "metadata");
     List<String> topics = new ArrayList<String>();
     TopicMetadataRequest req = new TopicMetadataRequest(topics);
