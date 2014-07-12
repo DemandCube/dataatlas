@@ -10,13 +10,17 @@ import java.util.HashMap;
 
 
 public class Metadata {
-  public static HashMap<String, HashMap<String, String>> details;
+  private static HashMap<String, HashMap<String, String>> currentDetails;
 
   public static void main(String[] args) {
-    details = getDetails();
+    fetchDetails();
   }
 
   public static HashMap<String, HashMap<String, String>> getDetails(){
+    return currentDetails;
+  };
+
+  public static void fetchDetails(){
     HashMap<String, HashMap<String, String>> brokerDetails = new HashMap<>();
     List<kafka.javaapi.TopicMetadata> data = MetadataDump();
     HashMap<String, String> topicDetails = new HashMap<>();
@@ -41,7 +45,7 @@ public class Metadata {
 
       brokerDetails.put(topic, topicDetails);
     }
-    return brokerDetails;
+    currentDetails = brokerDetails;
   }
 
   public static List<kafka.javaapi.TopicMetadata> MetadataDump(){

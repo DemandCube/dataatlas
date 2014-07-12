@@ -20,7 +20,7 @@ public class Offsets {
 
   public static HashMap<String, String> TopicLeaders(){
     Metadata metadata = new Metadata();
-    HashMap<String, HashMap<String, String>> details = metadata.details;
+    HashMap<String, HashMap<String, String>> details = metadata.getDetails();
     HashMap<String, String> topicLeaders = new HashMap<>();
 
     // iterate through the items so that we can get the topic leaders
