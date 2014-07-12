@@ -19,11 +19,12 @@ public class Offsets {
 
 
   public static HashMap<String, String> TopicLeaders(){
-    HashMap<String, HashMap<String, String>> metadata = Metadata.getDetails();
+    Metadata metadata = new Metadata();
+    HashMap<String, HashMap<String, String>> details = metadata.details;
     HashMap<String, String> topicLeaders = new HashMap<>();
 
     // iterate through the items so that we can get the topic leaders
-    Iterator it = metadata.entrySet().iterator();
+    Iterator it = details.entrySet().iterator();
     while (it.hasNext()) {
       Map.Entry pairs = (Map.Entry)it.next();
       String topic = pairs.getKey().toString();

@@ -10,6 +10,11 @@ import java.util.HashMap;
 
 
 public class Metadata {
+  public static HashMap<String, HashMap<String, String>> details;
+
+  public static void main(String[] args) {
+    details = getDetails();
+  }
 
   public static HashMap<String, HashMap<String, String>> getDetails(){
     HashMap<String, HashMap<String, String>> brokerDetails = new HashMap<>();
