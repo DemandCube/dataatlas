@@ -13,4 +13,25 @@ import java.util.*;
  */
 public class Offsets {
 
+  public static void main(String[] args) {
+    TopicLeaders();
+  }
+
+
+  public static HashMap<String, String> TopicLeaders(){
+    HashMap<String, HashMap<String, String>> metadata = Metadata.getDetails();
+    HashMap<String, String> topicLeaders = new HashMap<>();
+
+    // iterate through the items so that we can get the topic leaders
+    Iterator it = metadata.entrySet().iterator();
+    while (it.hasNext()) {
+      Map.Entry pairs = (Map.Entry)it.next();
+      String topic = pairs.getKey().toString();
+      HashMap<String, String> topicData = (HashMap)pairs.getValue();
+      String leader = topicData.get("leader");
+      topicLeaders.put(topic, leader);
+    }
+
+    return topicLeaders;
+  };
 }
