@@ -1,11 +1,5 @@
 package com.DemandCube.KafkaSphere.kafka;
 
-import com.DemandCube.KafkaSphere.kafka.Metadata;
-
-import kafka.javaapi.TopicMetadata;
-import kafka.javaapi.TopicMetadataRequest;
-import kafka.javaapi.consumer.SimpleConsumer;
-
 import java.util.*;
 
 /**
@@ -17,10 +11,9 @@ public class Offsets {
     TopicLeaders();
   }
 
-
   public static HashMap<String, String> TopicLeaders(){
     Metadata metadata = new Metadata();
-    HashMap<String, HashMap<String, String>> details = metadata.getDetails();
+    HashMap<String, HashMap<String, String>> details = metadata.get();
     HashMap<String, String> topicLeaders = new HashMap<>();
 
     // iterate through the items so that we can get the topic leaders
