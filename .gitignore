@@ -49,4 +49,4 @@ logger.log.1
 
 # node && bower
 node_modules
-bower_components
+public/lib
