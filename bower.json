@@ -1,0 +1,29 @@
+{
+  "name": "KafkaSphere",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DemandCube/KafkaSphere",
+  "authors": [
+    "Lazaruslarue <lazaruslarue@gmail.com>",
+    "Sam Stites <sam@stites.io"
+  ],
+  "description": "Web console for Kafka that has a Web tier that talks to a REST Api tier",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "license": "GNU AFFERO GENERAL PUBLIC LICENSE",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootswatch": "~3.1.1",
+    "angular-bootstrap": "~0.11.0",
+    "angular-ui-router": "~0.2.10"
+  }
+}
