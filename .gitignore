@@ -46,3 +46,7 @@ log-cleaner.log
 logger.log
 classes
 logger.log.1
+
+# node && bower
+node_modules
+public/lib
