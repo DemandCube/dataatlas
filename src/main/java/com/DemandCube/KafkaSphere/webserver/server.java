@@ -1,6 +1,9 @@
-package com.DemandCube.KafkaSphere;
+package com.DemandCube.KafkaSphere.webserver;
 
 import static spark.Spark.*;
+
+import com.DemandCube.KafkaSphere.ServerMessage;
+import com.DemandCube.KafkaSphere.SparkConsumerGroup;
 import spark.*;
 
 import java.io.File;
@@ -29,7 +32,7 @@ import org.apache.zookeeper.data.Stat;
 /**
  * A RESTful server built on the Spark Framework (sparkjava.com).
  **/
-public class NachtsServer {
+public class server {
 
   private static Map<String, String> toJSON(String message) {
 
@@ -61,59 +64,13 @@ public class NachtsServer {
     get(new Route("/") {
       @Override
       public Object handle(Request request, Response response) {
-        return "Hello You!";
-      }
-    });
-
-    get(new Route("/hello") {
-      @Override
-      public Object handle(Request request, Response response) {
-        return toJSON("Hola!");
-      }
-    });
-
-    get(new Route("/private") {
-      @Override
-      public Object handle(Request request, Response response) {
-        response.status(401);
-        return toJSON("Private Route");
-      }
-    });
-
-    get(new Route("/users/:name") {
-      @Override
-      public Object handle(Request request, Response response) {
-        return toJSON("User: " + request.params(":name"));
-      }
-    });
-
-    get(new Route("/news/:section") {
-      @Override
-      public Object handle(Request request, Response response) {
-        response.type("text/xml");
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><news>" + request.params("section") + "</news>";
-      }
-    });
-
-    get(new Route("/protected") {
-      @Override
-      public Object handle(Request request, Response response) {
-        halt(403, "Protected Route");
-        return null;
-      }
-    });
-
-    get(new Route("/redirect") {
-      @Override
-      public Object handle(Request request, Response response) {
-        response.redirect("/news/bigdata");
-        return null;
+        return "Kafkashere up. navigate to 'sphere/api' for Kafkashere interface and 'kafka/api' for kafka interface";
       }
     });
 
     // KAFKA ROUTES
 
-     get(new Route("/api/:topic") {
+     get(new Route("/kafka/api/:topic") {
          @Override
          public Object handle(Request request, Response response) {
              String topic = request.params(":topic");
@@ -135,7 +92,7 @@ public class NachtsServer {
          }
      });
 
-    post(new Route("/api/:topic") {
+    post(new Route("/kafka/api/:topic") {
       @Override
       public Object handle(Request request, Response response) {
         String topic = request.params(":topic");
