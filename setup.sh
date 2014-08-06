@@ -44,4 +44,9 @@ downloadToHome () {
         #exit 1
     fi
 }
+echo "downloading kafka to ~/.kafka-\$RELEASE-src:"
 downloadToHome kafka
+echo "downloading zookeeper to ~/.zookeeper-\$RELEASE-src:"
+downloadToHome zookeeper
+echo "downloading storm to ~/.storm-\$RELEASE-src:"
+downloadToHome storm
