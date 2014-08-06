@@ -16,7 +16,7 @@ downloadToHome () {
         ;;
     kafka)
         URL="$1/$KAFKA_RELEASE/$1-$KAFKA_RELEASE-src.tgz"
-        RELEASE=$KAFKA_RELEASE
+        RELEASE="$KAFKA_RELEASE"
         EXT=.tgz
         ;;
     storm)
@@ -31,9 +31,10 @@ downloadToHome () {
     if [[ ! -z "$RELEASE" ]]; then
         FOLDER=~/.$1-$RELEASE-src
         if [[ ! -d "$FOLDER" ]]; then
-            echo "made it"
-            #curl -o "$1.$EXT" $ROOT_URL$URL
-            #tar -xzf "$1.$EXT" -C $FOLDER
+            curl -o "$1$EXT" $ROOT_URL$URL
+            mkdir $FOLDER
+            tar -xzf "$1$EXT" -C $FOLDER --strip-components=1
+            rm -rf $1$EXT
         else
             echo "$1 may already be downloaded. Remove $FOLDER before continuing."
             #exit 1
